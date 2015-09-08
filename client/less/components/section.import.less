@@ -1,0 +1,37 @@
+.section {
+  clear: both;
+  background-color: @color-white;
+  color: @color-primary-darker;
+
+  &-inner {
+    padding: @space-xl @space;
+    max-width: @mq-xl-width;
+    margin: 0 auto;
+
+    &:before,
+	  &:after {
+	    display: table;
+	    content: '';
+	    clear: both;
+	  }
+  }
+
+  &-title {
+    margin-bottom: @space-xl;
+    text-align: center;
+  }
+
+  &--tall &-inner {
+    padding-top: @space-lg;
+    padding-bottom: @space-lg;
+  }
+
+  &--fullwidth &-inner {
+  	padding-left: 0;
+  	padding-right: 0;
+  }
+
+  &--nopad &-inner {
+  	padding: 0;
+  }
+}

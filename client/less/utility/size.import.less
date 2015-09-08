@@ -1,0 +1,17 @@
+// Create a size class
+.size(@x, @y, @prefix: ~'') when (@x < @y){
+  .col@{prefix}-@{x}of@{y} when not (@x = @y) {
+    @w: (100/@y)*@x;
+    width: ~"@{w}%";
+  }
+}
+
+// Create sizes
+.create-sizes(@a, @prefix: ~'', @x: 1) when (@x <= @a) {
+  .inner-loop(@b, @y: 1) when (@y <= @b) {
+    .size(@x, @y, @prefix);
+    .inner-loop(@b, (@y + 1));
+  }
+  .inner-loop(@a);
+  .create-sizes(@a, @prefix, (@x + 1));
+}

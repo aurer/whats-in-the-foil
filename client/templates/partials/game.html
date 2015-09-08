@@ -1,0 +1,27 @@
+<template name="game">
+	<div class="game">
+		<h3>{{moFormat created 'DD/MM/YYYY'}}</h3>
+		<div class="treat">{{title}}</div>
+		<a href="/games/{{_id}}" class="button">
+			{{#if active}}
+				Join in
+			{{else}}
+				View it
+			{{/if}}
+		</a>
+		<div class="owner">
+			Owner: {{owner.username}}
+		</div>
+		{{#if winners.count}}
+			<div class="winners">
+				Winners:
+				{{#each winners}}
+					{{user_name}}
+				{{/each}}
+			</div>
+		{{/if}}
+		<div class="players">
+			Players: {{guesses.count}}
+		</div>
+  </div>
+</template>

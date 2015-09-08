@@ -1,0 +1,27 @@
+<template name="home">
+  <a href="/games/new" class="button new-game">New game</a>
+
+	{{#if activeGames.count}}
+		<h2>Active games</h2>
+		<div class="games games--active grid">
+		  {{#each activeGames}}
+		  	<div class="col-1of3">
+			    {{> game}}
+		    </div>
+		  {{/each}}
+		</div>
+	{{/if}}
+
+	{{#if inactiveGames.count}}
+		<h2>Completed games</h2>
+		<div class="games games--inactive grid">
+		  {{#each inactiveGames}}
+		  	<div class="col-md-1of2 col-lg-1of3">
+			    {{> game}}
+		    </div>
+		  {{/each}}
+		</div>
+	{{else}}
+
+	{{/if}}
+</template>

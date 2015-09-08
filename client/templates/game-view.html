@@ -1,0 +1,51 @@
+<template name="gameView">
+
+	<!-- Owner -->
+	{{#if owner}}
+		<h3>Guesses</h3>
+		{{> guesses}}
+		<p><button class="button end-game">Declare winners</button></p>
+	{{/if}}
+
+	<!-- Normal user -->
+	{{#unless owner}}
+		<!-- Open game -->
+		{{#if isOpen}}
+			{{#if usersGuess}}
+				<p>You guessed <b>{{usersGuess.guess}}</b>.</p>
+			{{else}}
+				<h2>Place your bets</h2>
+				<form class="form form--guess">
+					<div class="form-field">
+						<label for="guess">What you sayin' fam?</label>
+						<div class="field-input">
+							<input type="text" name="guess">
+						</div>
+					</div>
+				</form>
+			{{/if}}
+
+			<h3>Other peoples guesses</h3>
+			{{> guesses}}
+		{{/if}}
+
+		<!-- Closed game -->
+		{{#unless isOpen}}
+			<h2>It was actually {{game.title}}</h2>
+			{{#if usersGuess.correct}}
+				<p>
+					Congrats, your winning guess was <b>{{usersGuess.guess}}</b><br>
+					<small>Up the {{usersGuess.guess}}!</small>
+				</p>
+			{{else}}
+				<p>You useless guess was <b>{{usersGuess.guess}}</b>.</p>
+			{{/if}}
+
+			<h3>Other peoples guesses</h3>
+			{{> guesses}}
+
+		{{/unless}}
+	{{/unless}}
+
+	<a href="/">Back to the start</a>
+</template>

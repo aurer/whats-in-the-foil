@@ -1,0 +1,12 @@
+<template name="app">
+	<div class="page">
+		<h1><a href="/">What's in the foil?</a></h1>
+		{{#if currentUser}}
+			<div class="signout">{{> loginButtons align="left"}}</div>
+		{{/if}}
+
+		{{> yield}}
+
+		<footer class="footer"></footer>
+	</div>
+</template>

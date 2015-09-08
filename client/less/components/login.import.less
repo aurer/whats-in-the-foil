@@ -1,0 +1,25 @@
+.loginContainer {
+	text-align: center;
+
+	#login-buttons {
+		.login-link-text:extend(.button){
+			text-decoration: none;
+		}
+	}
+
+	#login-dropdown-list {
+		position: relative;
+		top: -35px;
+		overflow: hidden;
+	}
+}
+
+#login-buttons .login-button,
+.accounts-dialog .login-button {
+	background: @color-primary-dark;
+	border: none;
+
+	&:hover, &:focus {
+		background: @color-primary;
+	}
+}
