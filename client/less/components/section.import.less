@@ -4,7 +4,7 @@
   color: @color-primary-darker;
 
   &-inner {
-    padding: @space-xl @space;
+    padding: @space-lg @space;
     max-width: @mq-xl-width;
     margin: 0 auto;
 
@@ -34,4 +34,34 @@
   &--nopad &-inner {
   	padding: 0;
   }
+}
+
+.section--header {
+  background-color: @color-neutral-darker;
+  color: @color-white;
+  padding: @space-xl 0 @space;
+
+  h1 a {
+    color: inherit;
+  }
+}
+
+.section--main {
+  background-color: @color-white;
+  color: @color-neutral-dark;
+}
+
+.section--login {
+  background-color: @color-neutral-darker;
+  color: @color-white;
+
+  .section-inner {
+    padding: 0;
+  }
+}
+
+.section--newGame {
+  background-color: @color-neutral-darker;
+  color: @color-primary;
+  padding: @space 0 @space-xl;
 }

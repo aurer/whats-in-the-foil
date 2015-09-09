@@ -16,6 +16,7 @@ Router.configure({
 
 Router.route('/', function(){
   this.render('home');
+  this.render('newGame', {to: 'header'})
 });
 
 Router.route('/games', function(){

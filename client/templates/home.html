@@ -1,25 +1,39 @@
-<template name="home">
-  <a href="/games/new" class="button new-game">New game</a>
+<template name="newGame">
+	<div class="section section--newGame">
+  	<div class="section-inner">
+  		<a href="/games/new" class="button button--light new-game">New game</a>
+  	</div>
+  </div>
+</template>
 
+<template name="home">
 	{{#if activeGames.count}}
-		<h2>Active games</h2>
-		<div class="games games--active grid">
-		  {{#each activeGames}}
-		  	<div class="col-1of3">
-			    {{> game}}
-		    </div>
-		  {{/each}}
+		<div class="section section--activeGames">
+			<div class="section-inner">
+				<h2>Active games</h2>
+				<div class="games games--active grid">
+				  {{#each activeGames}}
+				  	<div class="col-1of3">
+					    {{> game}}
+				    </div>
+				  {{/each}}
+				</div>
+			</div>
 		</div>
 	{{/if}}
 
 	{{#if inactiveGames.count}}
-		<h2>Completed games</h2>
-		<div class="games games--inactive grid">
-		  {{#each inactiveGames}}
-		  	<div class="col-md-1of2 col-lg-1of3">
-			    {{> game}}
-		    </div>
-		  {{/each}}
+		<div class="section section--inactiveGames">
+			<div class="section-inner">
+				<h2>Completed games</h2>
+				<div class="games games--inactive grid grid--pad">
+				  {{#each inactiveGames}}
+				  	<div class="col-md-1of2 col-lg-1of3">
+					    {{> game}}
+				    </div>
+				  {{/each}}
+				</div>
+			</div>
 		</div>
 	{{else}}
 

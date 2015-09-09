@@ -1,12 +1,23 @@
 <template name="app">
 	<div class="page">
-		<h1><a href="/">What's in the foil?</a></h1>
-		{{#if currentUser}}
-			<div class="signout">{{> loginButtons align="left"}}</div>
-		{{/if}}
+		<header class="section section--header">
+			<div class="section-inner">
+				<h1><a href="/">What's in the foil?</a></h1>
+				{{#if currentUser}}
+					<div class="signout">{{> loginButtons align="left"}}</div>
+				{{/if}}
+			</div>
+			{{> yield "header"}}
+		</header>
 
-		{{> yield}}
+		<main class="section section--main">
+			<div class="section-inner">
+				{{> yield}}
+			</div>
+		</main>
 
-		<footer class="footer"></footer>
+		<footer class="section section--footer">
+			<div class="section-inner"></div>
+		</footer>
 	</div>
 </template>
