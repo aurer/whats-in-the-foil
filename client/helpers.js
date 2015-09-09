@@ -1,11 +1,11 @@
-Template.home.helpers({
-  activeGames: function () {
+Template.games.helpers({
+	activeGames: function () {
     return Games.find({state: 1});
   },
   inactiveGames: function () {
     return Games.find({state: 2});
   }
-});
+})
 
 Template.guesses.helpers({
 	guesses: function() {

@@ -3,15 +3,21 @@
 	display: inline-block;
 	text-decoration: none;
 	text-align: center;
-	line-height: 1.1;
+	line-height: 1;
 	margin: 0 .2em;
-	background: none;
+	background: transparent;
 	border: 2px solid @color-primary-dark;
 	color: @color-primary-darker;
-	padding: @space-sm @space-lg;
+	padding: @space-xs @space-lg;
 	border-radius: 3px;
 	font-size: 1em;
 	outline: none;
+	transition-duration: .2s;
+
+	&:hover, &:focus {
+		color: @color-primary-light;
+		background-color: fade(@color-primary, 5%);
+	}
 
 	&--light {
 		border-color: @color-primary;

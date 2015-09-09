@@ -1,0 +1,25 @@
+.guesses {
+	text-align: left;
+	max-width: @mq-md-width;
+	padding: @space-sm 0;
+	margin: 0 auto @space;
+	border-top: 1px solid @color-neutral-light;
+	border-bottom: 1px solid @color-neutral-light;
+
+	p {
+		margin: 0;
+		text-align: center;
+	}
+}
+
+.guess {
+	padding-right: @space;
+	position: relative;
+
+	.mark-correct {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}

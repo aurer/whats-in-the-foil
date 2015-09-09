@@ -1,19 +1,21 @@
 <template name="guesses">
-	{{#each guesses}}
-		<div class="guess">
-			{{#if ../owner}}
-				{{user_name}} guessed <b>{{guess}}</b>
-				<input type="checkbox" class="mark-correct" name="correct" value="{{_id}}" checked="{{correct}}">
-			{{else}}
-				{{#if active}}
-					{{user_name}} guessed something
+	<div class="guesses">
+		{{#each guesses}}
+			<div class="guess">
+				{{#if ../owner}}
+					{{user_name}} guessed <b>{{guess}}</b>
+					<input type="checkbox" class="mark-correct" name="correct" value="{{_id}}" checked="{{correct}}">
 				{{else}}
-					{{user_name}} guessed <b>{{guess}}</b> {{#if correct}}<i>#winning</i>{{/if}}
+					{{#if active}}
+						{{user_name}} guessed something
+					{{else}}
+						{{user_name}} guessed <b>{{guess}}</b> {{#if correct}}<i>#winning</i>{{/if}}
+					{{/if}}
 				{{/if}}
-			{{/if}}
-		</div>
-	{{/each}}
-	{{#unless guesses.count}}
-		<p>No guesses yet</p>
-	{{/unless}}
+			</div>
+		{{/each}}
+		{{#unless guesses.count}}
+			<p>No guesses yet</p>
+		{{/unless}}
+	</div>
 </template>

@@ -5,4 +5,29 @@
 .game {
 	background-color: @color-neutral-lightest;
 	padding: @space-sm @space;
+	box-shadow: 0 2px 7px fade(#000, 40%);
+
+	.button {
+		&:hover, &:focus {
+			color: @color-primary-darker;
+			background-color: fade(@color-primary-darker, 15%);
+		}
+	}
+
+	.game-date {
+		font-size: 1.4em;
+	}
+
+	.game-title {
+		color: @color-secondary;
+	}
+
+	.game-link {
+		text-align: center;
+		margin: @space-sm 0 @space-xs;
+
+		.button {
+			display: block;
+		}
+	}
 }

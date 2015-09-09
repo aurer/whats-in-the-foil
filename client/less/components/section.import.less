@@ -39,7 +39,7 @@
 .section--header {
   background-color: @color-neutral-darker;
   color: @color-white;
-  padding: @space-xl 0 @space;
+  padding: @space-lg 0 @space;
 
   h1 a {
     color: inherit;
@@ -49,6 +49,17 @@
 .section--main {
   background-color: @color-white;
   color: @color-neutral-dark;
+
+  a {
+    color: @color-primary-dark;
+  }
+
+  .button {
+    &:hover, &:focus {
+      color: @color-primary-darker;
+      background-color: fade(@color-primary-darker, 15%);
+    }
+  }
 }
 
 .section--login {
@@ -63,5 +74,13 @@
 .section--newGame {
   background-color: @color-neutral-darker;
   color: @color-primary;
-  padding: @space 0 @space-xl;
+
+  .section-inner {
+    padding: 0 0 @space-xl;
+  }
+}
+
+.section--footer {
+  background-color: @color-neutral-darker;
+  color: @color-neutral-lighter;
 }

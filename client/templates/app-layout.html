@@ -1,5 +1,5 @@
-<template name="app">
-	<div class="page">
+<template name="appLayout">
+	<div class="page page--app">
 		<header class="section section--header">
 			<div class="section-inner">
 				<h1><a href="/">What's in the foil?</a></h1>
@@ -10,11 +10,7 @@
 			{{> yield "header"}}
 		</header>
 
-		<main class="section section--main">
-			<div class="section-inner">
-				{{> yield}}
-			</div>
-		</main>
+		{{> yield}}
 
 		<footer class="section section--footer">
 			<div class="section-inner"></div>

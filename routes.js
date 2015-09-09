@@ -1,5 +1,6 @@
 Router.onBeforeAction(function () {
   if (!Meteor.userId()) {
+    this.layout('loginLayout');
     this.render('login',{
     	data: function() {
     		return {title: 'Login'};
@@ -11,7 +12,7 @@ Router.onBeforeAction(function () {
 });
 
 Router.configure({
-  layoutTemplate: 'app'
+  layoutTemplate: 'appLayout'
 });
 
 Router.route('/', function(){
@@ -20,7 +21,7 @@ Router.route('/', function(){
 });
 
 Router.route('/games', function(){
-	Router.go('/');
+	this.render('games');
 });
 
 Router.route('/games/new', function(){

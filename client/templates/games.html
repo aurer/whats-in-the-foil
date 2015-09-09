@@ -1,0 +1,37 @@
+<template name="games">
+	{{#if activeGames.count}}
+		<div class="section section--activeGames">
+			<div class="section-inner">
+				<h2>Active games</h2>
+				<div class="games games--active grid">
+				  {{#each activeGames}}
+				  	<div class="col-1of3">
+					    {{> game}}
+				    </div>
+				  {{/each}}
+				</div>
+			</div>
+		</div>
+	{{/if}}
+
+	{{#if inactiveGames.count}}
+		<div class="section section--inactiveGames">
+			<div class="section-inner">
+				<h2>Completed games</h2>
+				<div class="games games--inactive grid grid--pad">
+				  {{#each inactiveGames}}
+				  	<div class="col-md-1of2 col-lg-1of3">
+					    {{> game}}
+				    </div>
+				  {{/each}}
+				</div>
+			</div>
+		</div>
+	{{/if}}
+
+	{{#unless activeGames.count}}
+		{{#unless inactiveGames.count}}
+			<p>No games have been created yet</p>
+		{{/unless}}
+	{{/unless}}
+</template>
