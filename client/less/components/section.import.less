@@ -1,7 +1,7 @@
 .section {
   clear: both;
-  background-color: @color-white;
-  color: @color-primary-darker;
+  // background-color: @color-white;
+  // color: @color-primary-darker;
 
   &-inner {
     padding: @space-lg @space;
@@ -37,12 +37,26 @@
 }
 
 .section--header {
-  background-color: @color-neutral-darker;
-  color: @color-white;
   padding: @space-lg 0 @space;
 
   h1 a {
     color: inherit;
+  }
+}
+
+.section--newGame,
+.section--activeGames,
+.section--inactiveGames {
+  background-color: @color-white;
+  color: @color-neutral-dark;
+}
+
+.section--activeGames {
+  background-color: @color-secondary-light;
+  color: @color-white;
+
+  .game {
+    color: @color-neutral-dark;
   }
 }
 
@@ -63,24 +77,13 @@
 }
 
 .section--login {
-  background-color: @color-neutral-darker;
-  color: @color-white;
-
   .section-inner {
     padding: 0;
   }
 }
 
-.section--newGame {
-  background-color: @color-neutral-darker;
-  color: @color-primary;
-
+.section--newGameButton {
   .section-inner {
     padding: 0 0 @space-xl;
   }
-}
-
-.section--footer {
-  background-color: @color-neutral-darker;
-  color: @color-neutral-lighter;
 }

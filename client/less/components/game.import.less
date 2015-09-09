@@ -5,7 +5,7 @@
 .game {
 	background-color: @color-neutral-lightest;
 	padding: @space-sm @space;
-	box-shadow: 0 2px 7px fade(#000, 40%);
+	box-shadow: 0 2px 7px fade(#000, 20%);
 
 	.button {
 		&:hover, &:focus {
@@ -15,10 +15,13 @@
 	}
 
 	.game-date {
-		font-size: 1.4em;
+		float: right;
+		color: @color-neutral-light;
+		padding-left: @space-sm;
 	}
 
 	.game-title {
+		font-size: 1.3em;
 		color: @color-secondary;
 	}
 

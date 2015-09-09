@@ -17,11 +17,11 @@ Router.configure({
 
 Router.route('/', function(){
   this.render('home');
-  this.render('newGame', {to: 'header'})
+  this.render('newGameButton', {to: 'header'})
 });
 
 Router.route('/games', function(){
-	this.render('games');
+	this.redirect('/');
 });
 
 Router.route('/games/new', function(){

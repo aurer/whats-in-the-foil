@@ -8,25 +8,21 @@
 
 		<div class="game-details">
 			<div class="game-owner">
-				Owner: {{owner.username}}
+				Creator: <b>{{owner.username}}</b>
 			</div>
 
 			{{#if winners.count}}
 				<div class="game-winners">
 					Winners:
 					{{#each winners}}
-						{{user_name}}
+						<b>{{user_name}}</b>
 					{{/each}}
 				</div>
 			{{/if}}
-
-			<div class="game-players">
-				Players: {{guesses.count}}
-			</div>
 		</div>
 
 		<div class="game-link">
-			<a href="/games/{{_id}}" class="button">
+			<a href="/games/{{_id}}" class="button {{#if active}}button--fill{{else}}button--grey{{/if}}">
 				{{#if active}}
 					Join in
 				{{else}}
