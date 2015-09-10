@@ -6,7 +6,12 @@
 			{{#if owner}}
 				<h3>Guesses for "{{game.title}}"</h3>
 				{{> guesses}}
-				<p><button class="button end-game">Declare winners</button></p>
+				<p>
+					<button class="button end-game">Declare winners</button>
+					{{#unless isOpen}}
+						<button class="button button--delete delete-game">Delete</button>
+					{{/unless}}
+				</p>
 			{{/if}}
 
 			<!-- Normal user -->

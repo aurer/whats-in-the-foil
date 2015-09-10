@@ -51,5 +51,12 @@ Template.gameView.events({
   		// Meteor.call('updateGuessState', correct_guesses, 1);
   		Games.update({_id: Router.current().params._id}, {$set: {state: 2}});
   	}
+  },
+
+  'click .delete-game': function(){
+    if (confirm('Are you sure?')) {
+      var game = Games.findOne({_id: Router.current().params._id});
+      Meteor.call('deleteGame');
+    }
   }
 })
