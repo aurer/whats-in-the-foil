@@ -5,13 +5,18 @@
 			<!-- Owner -->
 			{{#if owner}}
 				<h3>Guesses for "{{game.title}}"</h3>
+
 				{{> guesses}}
-				<p>
-					<button class="button end-game">Declare winners</button>
-					{{#unless isOpen}}
-						<button class="button button--delete delete-game">Delete</button>
-					{{/unless}}
-				</p>
+
+				{{#unless isOpen}}
+					<p>This game has been closed</p>
+				{{/unless}}
+
+				<p><button class="button end-game">Declare winners</button></p>
+
+				{{#unless isOpen}}
+					<p><button class="button button--delete delete-game">Delete</button></p>
+				{{/unless}}
 			{{/if}}
 
 			<!-- Normal user -->
@@ -45,7 +50,7 @@
 							<small>Up the {{usersGuess.guess}}!</small>
 						</p>
 					{{else}}
-						<p>You useless guess was <b>{{usersGuess.guess}}</b>.</p>
+						<p>Your useless guess was <b>{{usersGuess.guess}}</b>.</p>
 					{{/if}}
 
 					<h3>Other peoples guesses</h3>
