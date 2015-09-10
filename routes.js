@@ -36,6 +36,11 @@ Router.route('/games/new', function(){
 Router.route('/games/:_id', function(){
   var data = {};
   data.game = Games.findOne({_id: this.params._id});
+
+  if (!data.game) {
+    Router.go('/');
+  };
+
   data.owner = data.game.user_id == Meteor.user()._id;
   data.isOpen = data.game.state == 1;
   data.usersGuess = Guesses.findOne({user_id: Meteor.user()._id, game_id: data.game._id});
