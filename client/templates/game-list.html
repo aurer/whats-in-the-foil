@@ -1,11 +1,11 @@
-<template name="games">
+<template name="gameList">
 	{{#if activeGames.count}}
 		<div class="section section--activeGames">
 			<div class="section-inner">
 				<h2>Active games</h2>
 				<div class="games games--active grid">
 				  {{#each activeGames}}
-				  	<div class="col-1of3">
+				  	<div class="col-md-1of2 col-lg-1of3">
 					    {{> game}}
 				    </div>
 				  {{/each}}

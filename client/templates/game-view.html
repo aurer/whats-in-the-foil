@@ -1,30 +1,27 @@
 <template name="gameView">
 	<div class="section section--main">
 		<div class="section-inner">
-
-			<!-- Owner -->
-			{{#if owner}}
-				<h3>Guesses for "{{game.title}}"</h3>
+			<!-- Owner of game -->
+			{{#if isOwner}}
+				<h3>Guesses for "{{title}}"</h3>
 
 				{{> guesses}}
-
-				{{#unless isOpen}}
+				{{testing}}
+				{{#if active}}
+					<p><button class="button end-game" value="{{_id}}">Declare winners</button></p>
+				{{else}}
 					<p>This game has been closed</p>
-				{{/unless}}
-
-				<p><button class="button end-game">Declare winners</button></p>
-
-				{{#unless isOpen}}
-					<p><button class="button button--delete delete-game">Delete</button></p>
-				{{/unless}}
-			{{/if}}
-
-			<!-- Normal user -->
-			{{#unless owner}}
+					<p>
+						<button class="button reopen-game">Re-open</button>
+						<button class="button button--delete delete-game">Delete game</button>
+					</p>
+				{{/if}}
+			<!-- Other users -->
+			{{else}}
 				<!-- Open game -->
-				{{#if isOpen}}
-					{{#if usersGuess}}
-						<p>You guessed <b>{{usersGuess.guess}}</b>.</p>
+				{{#if active}}
+					{{#if yourGuess}}
+						<p>You guessed <b>{{yourGuess.guess}}</b>.</p>
 					{{else}}
 						<h2>Place your bets</h2>
 						<form class="form form--guess">
@@ -37,29 +34,24 @@
 						</form>
 					{{/if}}
 
-					<h3>Other peoples guesses</h3>
 					{{> guesses}}
-				{{/if}}
 
 				<!-- Closed game -->
-				{{#unless isOpen}}
-					<h2>It was actually {{game.title}}</h2>
-					{{#if usersGuess.correct}}
-						<p>
-							Congrats, your winning guess was <b>{{usersGuess.guess}}</b><br>
-							<small>Up the {{usersGuess.guess}}!</small>
-						</p>
+				{{else}}
+					<h2>There was {{title}} in the foil.</h2>
+					{{#if yourGuess.correct}}
+						<h3>Your a winner!</h3>
+						<p>You guessed {{yourGuess.guess}} <br>Up the {{yourGuess.guess}}!</p>
 					{{else}}
-						<p>Your useless guess was <b>{{usersGuess.guess}}</b>.</p>
+						<p>Your guess was <b>{{yourGuess.guess}}</b>.</p>
 					{{/if}}
 
-					<h3>Other peoples guesses</h3>
+					<h3>Other guesses</h3>
 					{{> guesses}}
+				{{/if}}
+			{{/if}}
 
-				{{/unless}}
-			{{/unless}}
-
-			<a href="/games">Other games</a>
+			<p><a href="/games">Other games</a></p>
 		</div>
 	</div>
 </template>

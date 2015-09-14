@@ -8,15 +8,18 @@ Template.gameNew.events({
     var input = e.target.treat;
     var title = input.value;
 
-    var game = Games.insert({
-    	title: title,
-    	user_id: Meteor.user()._id,
-    	state: 1,
-    	created: new Date()
+    Meteor.call('addGame', {
+      title: title,
+      user_id: Meteor.user()._id,
+      owner: Meteor.user(),
+      state: 0,
+      created: new Date()
+    }, function(error, result){
+      if (!error) {
+        input.value = '';
+        Router.go('/games/' + result);
+      };
     });
-
-    input.value = '';
-    Router.go('/games/' + game);
   }
 })
 
@@ -27,36 +30,30 @@ Template.gameView.events({
     var guess = input.value;
     var game = Games.findOne({_id: Router.current().params._id});
 
-    Guesses.insert({
-    	game_id: game._id,
-    	guess: guess,
-    	user_id: Meteor.user()._id,
-    	user_name: Meteor.user().username,
-    	state: 0,
-    	created: new Date()
-    });
+    Meteor.call('addGuess', this._id, guess, function(error, result){});
 
     input.value = '';
   },
 
   'click .end-game': function(){
-  	var guesses = $('.mark-correct');
-  	if (guesses.length < 1) {
-  		alert('Mark at least one person the winner');
-  	} else {
-  		guesses.each(function(){
-        var state = this.checked ? 1 : 0;
-        Guesses.update({_id: this.value}, {$set: {state: state}});
-  		});
-  		// Meteor.call('updateGuessState', correct_guesses, 1);
-  		Games.update({_id: Router.current().params._id}, {$set: {state: 2}});
-  	}
+  	var checkboxes = $('.mark-correct');
+    var game_id = this._id;
+    var guesses = [];
+
+    checkboxes.each(function(i, item){
+      guesses.push({_id: item.value, state: item.checked})
+    });
+
+    Meteor.call('closeGame', game_id, guesses);
+  },
+
+  'click .reopen-game': function() {
+    Meteor.call('openGame', this._id);
   },
 
   'click .delete-game': function(){
     if (confirm('Are you sure?')) {
-      var game = Games.findOne({_id: Router.current().params._id});
-      Meteor.call('deleteGame', game._id, function(error, result){
+      Meteor.call('deleteGame', Router.current().params._id, function(error, result){
         Router.go('/');
       });
     }
