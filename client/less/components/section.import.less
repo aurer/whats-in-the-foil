@@ -49,6 +49,7 @@
 .section--inactiveGames {
   background-color: @color-white;
   color: @color-neutral-dark;
+  box-shadow: 0 2px 10px fade(#000, 20%);
 }
 
 .section--activeGames {
@@ -61,8 +62,7 @@
 }
 
 .section--main {
-  background-color: @color-white;
-  color: @color-neutral-dark;
+  &:extend(.section--newGame);
 
   a {
     color: @color-primary-dark;
