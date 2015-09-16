@@ -6,16 +6,14 @@
 				<h3>Guesses for "{{title}}"</h3>
 
 				{{> guesses}}
-				{{testing}}
+
 				{{#if active}}
 					<p><button class="button end-game" value="{{_id}}">Declare winners</button></p>
 				{{else}}
 					<p>This game has been closed</p>
-					<p>
-						<button class="button reopen-game">Re-open</button>
-						<button class="button button--delete delete-game">Delete game</button>
-					</p>
+					<p><button class="button reopen-game">Re-open</button></p>
 				{{/if}}
+				<p><button class="button button--delete delete-game">Delete game</button></p>
 			<!-- Other users -->
 			{{else}}
 				<!-- Open game -->
@@ -28,7 +26,7 @@
 							<div class="form-field">
 								<label for="guess">What's your guess?</label>
 								<div class="form-input">
-									<input type="text" name="guess">
+									<input type="text" name="guess" placeholder="e.g. {{suggestion}}">
 								</div>
 							</div>
 						</form>
@@ -38,15 +36,14 @@
 
 				<!-- Closed game -->
 				{{else}}
-					<h2>There was {{title}} in the foil.</h2>
 					{{#if yourGuess.correct}}
-						<h3>Your a winner!</h3>
+						<h2>Your a winner!</h2>
+						<h3>There was {{title}} in the foil.</h3>
 						<p>You guessed {{yourGuess.guess}} <br>Up the {{yourGuess.guess}}!</p>
 					{{else}}
+						<h3>There was {{title}} in the foil.</h3>
 						<p>Your guess was <b>{{yourGuess.guess}}</b>.</p>
 					{{/if}}
-
-					<h3>Other guesses</h3>
 					{{> guesses}}
 				{{/if}}
 			{{/if}}

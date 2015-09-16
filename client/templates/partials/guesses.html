@@ -1,20 +1,25 @@
 <template name="guesses">
 	<div class="guesses">
-		{{#each guesses}}
-			<div class="guess {{#if correct}}guess--winner{{/if}}">
-				{{#if ../isOwner}}
-					{{user.username}} guessed <b>{{guess}}</b>
-					{{#if ../active}}
-						<input type="checkbox" class="mark-correct" name="correct" value="{{_id}}" checked="{{correct}}">
-					{{/if}}
-				{{else}}
-					{{#if ../active}}
-						<b>{{user.username}}</b> added a guess.
-					{{else}}
-						{{user.username}} guessed <b>{{guess}}</b> {{#if correct}}<i>#winning</i>{{/if}}
-					{{/if}}
-				{{/if}}
-			</div>
-		{{/each}}
+		{{#momentum plugin='fade'}}
+			{{#each guesses}}
+					<div class="guess {{#if correct}}guess--winner{{/if}}">
+						{{#if ../isOwner}}
+							{{user.username}} guessed <b>{{guess}}</b>
+							{{#if ../active}}
+								<input type="checkbox" class="mark-correct" name="correct" value="{{_id}}" checked="{{correct}}">
+							{{/if}}
+						{{else}}
+							{{#if ../active}}
+								<b>{{user.username}}</b> added a guess.
+							{{else}}
+								{{user.username}} guessed <b>{{guess}}</b> {{#if correct}}<i>#winning</i>{{/if}}
+							{{/if}}
+						{{/if}}
+					</div>
+			{{/each}}
+			{{#unless hasGuesses}}
+				<center>...</center>
+			{{/unless}}
+		{{/momentum}}
 	</div>
 </template>

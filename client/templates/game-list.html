@@ -1,33 +1,35 @@
 <template name="gameList">
-	{{#if activeGames.count}}
-		<div class="section section--activeGames">
-			<div class="section-inner">
-				<h2>Active games</h2>
-				<div class="games games--active grid">
-				  {{#each activeGames}}
-				  	<div class="col-md-1of2 col-lg-1of3">
-					    {{> game}}
-				    </div>
-				  {{/each}}
+	{{#momentum plugin='fade'}}
+		{{#if activeGames.count}}
+			<div class="section section--activeGames">
+				<div class="section-inner">
+					<h2>Active games</h2>
+					<div class="games games--active grid grid--pad">
+				  	{{#each activeGames}}
+					  	<div class="col-md-1of2 col-lg-1of3">
+						    {{> game}}
+					    </div>
+				  	{{/each}}
+					</div>
 				</div>
 			</div>
-		</div>
-	{{/if}}
+		{{/if}}
 
-	{{#if inactiveGames.count}}
-		<div class="section section--inactiveGames">
-			<div class="section-inner">
-				<h2>Completed games</h2>
-				<div class="games games--inactive grid grid--pad">
-				  {{#each inactiveGames}}
-				  	<div class="col-md-1of2 col-lg-1of3">
-					    {{> game}}
-				    </div>
-				  {{/each}}
+		{{#if inactiveGames.count}}
+			<div class="section section--inactiveGames">
+				<div class="section-inner">
+					<h2>Completed games</h2>
+					<div class="games games--inactive grid grid--pad">
+					  {{#each inactiveGames}}
+					  	<div class="col-md-1of2 col-lg-1of3">
+						    {{> game}}
+					    </div>
+					  {{/each}}
+					</div>
 				</div>
 			</div>
-		</div>
-	{{/if}}
+		{{/if}}
+	{{/momentum}}
 
 	{{#unless activeGames.count}}
 		{{#unless inactiveGames.count}}

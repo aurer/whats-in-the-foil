@@ -3,26 +3,21 @@
 }
 
 .game {
-	background-color: @color-neutral-lightest;
 	padding: @space-sm @space;
-	box-shadow: 0 2px 7px fade(#000, 20%);
-
-	.button {
-		&:hover, &:focus {
-			color: @color-primary-darker;
-			background-color: fade(@color-primary-darker, 15%);
-		}
-	}
+	border: 1px solid @color-primary-light;
 
 	.game-date {
 		float: right;
-		color: @color-neutral-light;
+		color: @color-primary-lighter;
 		padding-left: @space-sm;
+	}
+
+	.game-owner {
+		color: @color-primary-light;
 	}
 
 	.game-title {
 		font-size: 1.3em;
-		color: @color-secondary;
 	}
 
 	.game-link {

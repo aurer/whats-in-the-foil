@@ -3,8 +3,6 @@
 	max-width: @mq-md-width;
 	padding: @space-sm 0;
 	margin: 0 auto @space;
-	border-top: 1px solid @color-neutral-light;
-	border-bottom: 1px solid @color-neutral-light;
 
 	p {
 		margin: 0;
@@ -13,8 +11,13 @@
 }
 
 .guess {
-	padding: @space-xs @space @space-xs 0;
+	padding: @space-sm @space @space-sm 0;
 	position: relative;
+	border-top: 1px dotted @color-primary-dark;
+
+	&:last-of-type {
+		border-bottom: 1px dotted @color-primary-dark;
+	}
 
 	.mark-correct {
 		position: absolute;

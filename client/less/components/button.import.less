@@ -10,38 +10,37 @@
 	color: @color-primary;
 	padding: @space-xs @space-lg;
 	border-radius: 3px;
-	font-size: 1em;
+	font-size: 1.1em;
 	outline: none;
 	transition-duration: .2s;
+	font-family: 'antonioregular';
 
 	&:hover, &:focus {
-		color: @color-primary-light;
-		background-color: fade(@color-primary, 5%);
+		background-color: fade(@color-secondary, 20%);
+		border-color: @color-secondary;
 	}
 
 	&--light {
-		border-color: @color-primary;
+		border-color: @color-secondary-light;
 		color: @color-primary;
 	}
 
 	&--fill {
 		background-color: fade(@color-primary-dark, 90%);
 		color: @color-white;
-	}
 
-	&--grey {
-		background-color: fade(@color-neutral-light, 90%);
-		border-color: @color-neutral-light;
-		color: @color-white;
+		&:hover, &:focus {
+			color: @color-white;
+		}
 	}
 
 	&--delete {
-		border-color: #c00;
-		color: #900;
+		border-color: #CE3F3F;
+		color: #E66C6C;
 
 		&:hover, &:focus {
-			background-color: fade(#900, 5%) !important;
-			color: #900 !important;
+			background-color: fade(#E66C6C, 5%) !important;
+			color: #E66C6C !important;
 		}
 	}
 }

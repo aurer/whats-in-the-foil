@@ -1,7 +1,5 @@
 .section {
   clear: both;
-  // background-color: @color-white;
-  // color: @color-primary-darker;
 
   &-inner {
     padding: @space-lg @space;
@@ -16,8 +14,9 @@
 	  }
   }
 
-  &-title {
-    margin-bottom: @space-xl;
+  &-title,
+  h2, h3  {
+    margin-bottom: @space-lg;
     text-align: center;
   }
 
@@ -39,41 +38,41 @@
 .section--header {
   padding: @space-lg 0 @space;
 
-  h1 a {
-    color: inherit;
+  .page--app & {
+    border-bottom: 1px solid @color-secondary;
   }
-}
 
-.section--newGame,
-.section--activeGames,
-.section--inactiveGames {
-  background-color: @color-white;
-  color: @color-neutral-dark;
-  box-shadow: 0 2px 10px fade(#000, 20%);
-}
+  h1 {
+    border-top: 1px solid @color-secondary;
+    border-bottom: 1px solid @color-secondary;
+    padding: @space;
+    display: inline-block;
 
-.section--activeGames {
-  background-color: @color-secondary-light;
-  color: @color-white;
+    a {
+      color: @color-primary;
 
-  .game {
-    color: @color-neutral-dark;
+      &:hover, &:focus {
+        color: @color-secondary;
+        text-decoration: none;
+      }
+    }
   }
 }
 
 .section--main {
-  &:extend(.section--newGame);
-
-  a {
-    color: @color-primary-dark;
-  }
-
   .button {
     &:hover, &:focus {
       color: @color-primary-darker;
       background-color: fade(@color-primary-darker, 15%);
     }
   }
+}
+
+.section--newGame,
+.section--activeGames,
+.section--inactiveGames {
+  &:extend(.section--main);
+  margin-bottom: @space;
 }
 
 .section--login {
@@ -86,4 +85,8 @@
   .section-inner {
     padding: 0 0 @space-xl;
   }
+}
+
+.section--footer {
+  border-top: 1px solid @color-secondary;
 }
