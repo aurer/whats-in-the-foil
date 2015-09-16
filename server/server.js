@@ -30,8 +30,9 @@ Meteor.methods({
 	},
 
 	'deleteGame': function(id) {
-		Games.remove({_id: id});
-		Guesses.remove({game_id: id});
+		var game = Games.remove({_id: id});
+		var guesses = Guesses.remove({game_id: id});
+		return [game, guesses];
 	},
 
 	'closeGame': function(id, winners){

@@ -53,8 +53,9 @@ Router.route('/games/:id', function(route){
 
   this.render('gameView', {
     data: function(){
-      var game = Games.findOne(this.params.id);
+      var game = Games.findOne();
       if (game) {
+        game.suggestion = randomCake();
         game.isOwner = game.owner._id == Meteor.userId();
         game.guesses = Guesses.find({ game_id: game._id, "user._id": {$ne: Meteor.userId()} } );
         game.yourGuess = Guesses.findOne({ game_id: game._id, "user._id": Meteor.userId() });

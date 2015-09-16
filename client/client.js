@@ -53,7 +53,7 @@ Template.gameView.events({
 
   'click .delete-game': function(){
     if (confirm('Are you sure?')) {
-      Meteor.call('deleteGame', Router.current().params._id, function(error, result){
+      Meteor.call('deleteGame', this._id, function(error, result){
         Router.go('/');
       });
     }
