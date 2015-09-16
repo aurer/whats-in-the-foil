@@ -10,7 +10,7 @@
 				{{#if active}}
 					<p><button class="button end-game" value="{{_id}}">Declare winners</button></p>
 				{{else}}
-					<p>This game has been closed</p>
+					<p>This game has been closed.</p>
 					<p><button class="button reopen-game">Re-open</button></p>
 				{{/if}}
 				<p><button class="button button--delete delete-game">Delete game</button></p>
@@ -37,12 +37,12 @@
 				<!-- Closed game -->
 				{{else}}
 					{{#if yourGuess.correct}}
-						<h2>Your a winner!</h2>
+						<h2>You're a winner!</h2>
 						<h3>There was {{title}} in the foil.</h3>
 						<p>You guessed {{yourGuess.guess}} <br>Up the {{yourGuess.guess}}!</p>
 					{{else}}
 						<h3>There was {{title}} in the foil.</h3>
-						<p>Your guess was <b>{{yourGuess.guess}}</b>.</p>
+						<p>You're guess was <b>{{yourGuess.guess}}</b>.</p>
 					{{/if}}
 					{{> guesses}}
 				{{/if}}
