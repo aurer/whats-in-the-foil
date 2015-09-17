@@ -46,6 +46,9 @@
 					{{/if}}
 					{{> guesses}}
 				{{/if}}
+				{{#if isAdmin}}
+					<p><button class="button button--delete delete-game">Delete game</button></p>
+				{{/if}}
 			{{/if}}
 
 			<p><a href="/games">Other games</a></p>

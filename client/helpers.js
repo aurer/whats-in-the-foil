@@ -11,3 +11,9 @@ Template.guesses.helpers({
 		}
 	}
 })
+
+Template.gameView.helpers({
+	isAdmin: function() {
+		return Meteor.user().username.toLowerCase() == 'phil';
+	}
+})
