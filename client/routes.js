@@ -56,8 +56,8 @@ Router.route('/games/:id', function(route){
       var game = Games.findOne();
       if (game) {
         game.suggestion = randomCake();
-        game.isOwner = game.owner._id == Meteor.userId();
-        game.guesses = Guesses.find({ game_id: game._id, "user._id": {$ne: Meteor.userId()} } );
+        game.isOwner = (game.owner) ? game.owner._id == Meteor.userId() : false;
+        game.guesses = Guesses.find({ game_id: game._id, "user._id": {$ne: Meteor.userId()} }, {sort: {state: -1} } );
         game.yourGuess = Guesses.findOne({ game_id: game._id, "user._id": Meteor.userId() });
         game.winners = Guesses.find({ game_id: game._id, state: 1 });
         return game;

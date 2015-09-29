@@ -1,3 +1,11 @@
+Template.game.helpers({
+	isOwner: function() {
+		if (Meteor.user() && this.owner) {
+			return Meteor.user().username == this.owner.username;
+		};
+	}
+});
+
 Template.guesses.helpers({
 	guessOwner: function() {
 		return Meteor.userId() == this.user._id;
@@ -10,10 +18,12 @@ Template.guesses.helpers({
 			return true
 		}
 	}
-})
+});
 
 Template.gameView.helpers({
 	isAdmin: function() {
-		return Meteor.user().username.toLowerCase() == 'phil';
+		if(Meteor.user()) {
+			return Meteor.user().username.toLowerCase() == 'phil';
+		}
 	}
-})
+});
