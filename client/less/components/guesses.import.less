@@ -25,4 +25,17 @@
 		top: 50%;
 		transform: translateY(-50%);
 	}
+
+	.game-closed & {
+		&--winner {
+			background-image: url(star.svg);
+			background-repeat: no-repeat;
+			background-position: center right;
+			padding-right: 25px;
+		}
+	}
+
+	i {
+		color: @color-secondary;
+	}
 }

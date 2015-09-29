@@ -1,5 +1,5 @@
 <template name="guesses">
-	<div class="guesses">
+	<div class="guesses game-{{#if active}}open{{else}}closed{{/if}}">
 		{{#momentum plugin='fade'}}
 			{{#each guesses}}
 					<div class="guess {{#if correct}}guess--winner{{/if}}">

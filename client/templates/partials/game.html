@@ -23,10 +23,14 @@
 
 		<div class="game-link">
 			<a href="/games/{{_id}}" class="button {{#if active}}button--fill{{/if}}">
-				{{#if active}}
-					Join in
+				{{#if isOwner}}
+					View game
 				{{else}}
-					View it
+					{{#if active}}
+						Join in
+					{{else}}
+						View game
+					{{/if}}
 				{{/if}}
 			</a>
 		</div>
