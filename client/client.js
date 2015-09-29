@@ -6,7 +6,13 @@ Template.gameNew.events({
   'submit .form--gameNew': function(e) {
     e.preventDefault();
     var input = e.target.treat;
-    var title = input.value;
+    var title = $.trim(input.value);
+
+    if (title == '') {
+      alert("There's got to be something in the foil");
+      input.focus();
+      return;
+    };
 
     Meteor.call('addGame', {
       title: title,
